@@ -1,0 +1,12 @@
+application {
+    mainClass = 'MainKt'
+}
+
+dependencies {
+    implementation project(':common')
+    implementation "com.sparkjava:spark-core:2.5.4"
+    implementation "org.slf4j:slf4j-simple:1.7.30"
+}
+apply from: "${project.rootDir}/gradle/testTask.gradle"
+apply from: "${project.rootDir}/gradle/integrationTest.gradle"
+apply from: "${project.rootDir}/gradle/unitTest.gradle"

@@ -1,0 +1,6 @@
+application {
+    mainClass = 'MainCommonKt'
+}
+apply from: "${project.rootDir}/gradle/testTask.gradle"
+apply from: "${project.rootDir}/gradle/integrationTest.gradle"
+apply from: "${project.rootDir}/gradle/unitTest.gradle"

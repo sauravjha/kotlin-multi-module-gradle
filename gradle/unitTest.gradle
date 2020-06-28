@@ -1,0 +1,22 @@
+sourceSets {
+    unitTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    unitTestImplementation.extendsFrom implementation
+    unitTestImplementation.extendsFrom testImplementation
+    integrationTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+task unitTest(type: Test) {
+    description = 'Runs integration tests.'
+    group = 'verification'
+
+    testClassesDirs = sourceSets.unitTest.output.classesDirs
+    classpath = sourceSets.unitTest.runtimeClasspath
+}
+
+check.dependsOn unitTest

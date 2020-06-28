@@ -1,0 +1,6 @@
+rootProject.name = 'kotlin-multi-module-gradle'
+//ref: https://docs.gradle.org/current/javadoc/org/gradle/api/initialization/Settings.html?_ga=2.210520144.47613959.1593235996-1835244234.1593056041#include%28java.lang.String%5B%5D%29
+file('modules').eachDir { dir ->
+    include dir.name
+    project(":${dir.name}").projectDir = dir
+}
