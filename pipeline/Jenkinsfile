@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Deploy to ci') {
             steps {
-                echo "This is deploy ci"
+                echo "This is deploy ci and then approve"
             }
         }
         stage('Approval') {
