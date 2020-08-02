@@ -8,9 +8,20 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                echo "This is testing stage"
-                 sh './gradlew test'
+            parallel {
+                stage("Unit Test") {
+                    steps {
+                        echo "This is testing stage"
+                        sh './gradlew unitTest'
+                    }
+                }
+                stage("Integration Test") {
+                    steps {
+                        echo "This is testing stage"
+                        sh './gradlew integrationTest'
+                    }
+                }
+
             }
         }
         stage('Deploy') {
