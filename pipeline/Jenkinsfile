@@ -36,9 +36,34 @@ pipeline {
 
             }
         }
-        stage('Deploy to ci') {
-            steps {
-                echo "This is deploy ci"
+        parallel {
+            stage('Deploy to ci') {
+                stages {
+                    stage("deploy baseinfra") {
+                        steps {
+                            echo "Deploy Baseinfra"
+                        }
+                    }
+                    stage("deploy service") {
+                          steps {
+                             echo "Deploy Service"
+                          }
+                    }
+                }
+            }
+            stage('Deploy to ci2') {
+                stages {
+                    stage("deploy baseinfra") {
+                        steps {
+                            echo "Deploy Baseinfra"
+                        }
+                    }
+                    stage("deploy service") {
+                          steps {
+                             echo "Deploy Service"
+                          }
+                    }
+                }
             }
         }
         stage('Approval') {
