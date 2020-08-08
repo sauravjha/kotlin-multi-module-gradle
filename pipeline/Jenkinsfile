@@ -36,32 +36,34 @@ pipeline {
 
             }
         }
-        parallel {
-            stage('Deploy to ci') {
-                stages {
-                    stage("deploy baseinfra") {
-                        steps {
-                            echo "Deploy Baseinfra"
+        stage("Deployment") {
+            parallel {
+                stage('Deploy to ci') {
+                    stages {
+                        stage("deploy baseinfra") {
+                            steps {
+                                echo "Deploy Baseinfra"
+                            }
                         }
-                    }
-                    stage("deploy service") {
-                          steps {
-                             echo "Deploy Service"
-                          }
+                        stage("deploy service") {
+                              steps {
+                                 echo "Deploy Service"
+                              }
+                        }
                     }
                 }
-            }
-            stage('Deploy to ci2') {
-                stages {
-                    stage("deploy baseinfra") {
-                        steps {
-                            echo "Deploy Baseinfra"
+                stage('Deploy to ci2') {
+                    stages {
+                        stage("deploy baseinfra") {
+                            steps {
+                                echo "Deploy Baseinfra"
+                            }
                         }
-                    }
-                    stage("deploy service") {
-                          steps {
-                             echo "Deploy Service"
-                          }
+                        stage("deploy service") {
+                              steps {
+                                 echo "Deploy Service"
+                              }
+                        }
                     }
                 }
             }
