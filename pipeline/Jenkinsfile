@@ -35,7 +35,8 @@ pipeline {
                 }
             }
             post {
-                publishHTML(
+                always {
+                     publishHTML(
                         target: [
                                 allowMissing         : false,
                                 alwaysLinkToLastBuild: false,
@@ -44,7 +45,8 @@ pipeline {
                                 reportFiles          : 'index.html',
                                 reportName           : "Unit Test Report"
                         ]
-                )
+                     )
+                }
             }
         }
         stage("Deployment") {
