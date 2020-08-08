@@ -33,7 +33,18 @@ pipeline {
                         sh './gradlew integrationTest'
                     }
                 }
-
+            }
+            post {
+                publishHTML(
+                        target: [
+                                allowMissing         : false,
+                                alwaysLinkToLastBuild: false,
+                                keepAll              : true,
+                                reportDir            : 'kotlin-multi-module-gradle/modules/service/build/reports/unitTest',
+                                reportFiles          : 'index.html',
+                                reportName           : "Unit Test Report"
+                        ]
+                )
             }
         }
         stage("Deployment") {
@@ -46,9 +57,9 @@ pipeline {
                             }
                         }
                         stage("deploy service") {
-                              steps {
-                                 echo "Deploy Service"
-                              }
+                            steps {
+                                echo "Deploy Service"
+                            }
                         }
                     }
                 }
@@ -60,9 +71,9 @@ pipeline {
                             }
                         }
                         stage("deploy service") {
-                              steps {
-                                 echo "Deploy Service"
-                              }
+                            steps {
+                                echo "Deploy Service"
+                            }
                         }
                     }
                 }
@@ -86,9 +97,9 @@ pipeline {
                     }
                 }
                 stage("deploy service") {
-                      steps {
-                         echo "Deploy Service"
-                      }
+                    steps {
+                        echo "Deploy Service"
+                    }
                 }
             }
         }
@@ -110,9 +121,9 @@ pipeline {
                     }
                 }
                 stage("deploy service") {
-                      steps {
-                         echo "Deploy Service"
-                      }
+                    steps {
+                        echo "Deploy Service"
+                    }
                 }
             }
         }
