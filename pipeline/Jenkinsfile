@@ -79,8 +79,15 @@ pipeline {
             }
         }
         stage('Deploy to Sit') {
-            steps {
-                echo "This is deploy sit"
+            stage("deploy baseinfra") {
+                steps {
+                    echo "Deploy Baseinfra"
+                }
+            }
+            stage("deploy service") {
+                  steps {
+                     echo "Deploy Service"
+                  }
             }
         }
     }
