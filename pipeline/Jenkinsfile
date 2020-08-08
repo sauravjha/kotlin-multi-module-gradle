@@ -68,7 +68,7 @@ pipeline {
                 }
             }
         }
-        stage('Approval') {
+        stage('Approval to Deploy to Sit') {
             // no agent, so executors are not used up when waiting for approvals
             agent none
             steps {
@@ -92,7 +92,7 @@ pipeline {
                 }
             }
         }
-        stage('Approval') {
+        stage('Approval to Deploy to Prod') {
             // no agent, so executors are not used up when waiting for approvals
             agent none
             steps {
