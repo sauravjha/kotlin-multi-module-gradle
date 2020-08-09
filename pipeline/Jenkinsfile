@@ -38,7 +38,7 @@ pipeline {
                                           allowMissing: false,
                                           alwaysLinkToLastBuild: false,
                                           keepAll: true,
-                                          reportDir: '**/build/reports/tests/unitTest/',
+                                          reportDir: 'modules/service/build/reports/tests/unitTest',
                                           reportFiles: 'index.html',
                                           reportName: 'UnitTest Report'
                                         ]
