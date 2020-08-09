@@ -34,7 +34,14 @@ pipeline {
                     }
                     post {
                         always {
-                            junit '**/build/reports/tests/unitTest/index.html'
+                            publishHTML target: [
+                                          allowMissing: false,
+                                          alwaysLinkToLastBuild: false,
+                                          keepAll: true,
+                                          reportDir: '**/build/reports/tests/unitTest/',
+                                          reportFiles: 'index.html',
+                                          reportName: 'UnitTest Report'
+                                        ]
                         }
                     }
                 }
